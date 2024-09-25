@@ -1,0 +1,119 @@
+﻿@model IEnumerable<TechFixWebApi.Quotation>
+
+@{
+    ViewBag.Title = "GetAllQuotation";
+}
+
+<h2 style="text-align: center; color: #4CAF50;">Quotations List</h2>
+
+<table class="table table-styled">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuotationID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestQuotationID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuotationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierID)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuotationID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestQuotationID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuotationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SupplierID)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "DeleteQuotation", new { id = item.QuotationID }, new { @class = "btn-action-delete" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h2 {
+        color: #17a2b8;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .table-styled {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 16px;
+    }
+
+        .table-styled th, .table-styled td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .table-styled th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .table-styled tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table-styled tr:hover {
+            background-color: #e2e6ea;
+        }
+
+    .btn-action-delete {
+        background-color: red;
+        color: white;
+        text-decoration: none;
+        text-decoration: none;
+        padding: 10px 15px;
+    }
+
+        .btn-action-delete:hover {
+            background-color:transparent;
+            color: black;
+            text-decoration: underline;
+        }
+</style>

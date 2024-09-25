@@ -1,0 +1,124 @@
+﻿@model IEnumerable<TechFixWebApi.Supplier>
+
+@{
+    ViewBag.Title = "GetAllSuppliers";
+}
+
+<h2 style="text-align: center; color: #4CAF50;">All Suppliers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddSupplier", null, new { @class = "btn-create" })
+</p>
+
+<table class="table table-styled">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactDetails)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SupplierID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SupplierName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactDetails)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "UpdateSupplier", new { id = item.SupplierID }, new { @class = "btn-actions" })
+
+                    @Html.ActionLink("Delete", "DeleteSupplier", new { id = item.SupplierID }, new { @class = "btn-action" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    h2 {
+        color: #4CAF50;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .btn-create {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .btn-create:hover {
+            background-color: #218838;
+        }
+
+    .table-styled {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+        .table-styled th, .table-styled td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .table-styled th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .table-styled tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+    .btn-actions {
+        background-color: orange;
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+    }
+
+        .btn-actions:hover {
+            background-color:transparent;
+            color: black;
+            text-decoration: underline;
+        }
+
+    .btn-action {
+        background-color: red;
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        
+    }
+
+        .btn-action:hover {
+            background-color: transparent;
+            color: black;
+            text-decoration: underline;
+        }
+</style>

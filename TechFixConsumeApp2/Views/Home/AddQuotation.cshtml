@@ -1,0 +1,210 @@
+﻿@model TechFixWebApi.Quotation
+
+@{
+    ViewBag.Title = "AddQuotation";
+}
+
+<h2 class="title">Add Quotation</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-container">
+        <div class="form-horizontal form-box">
+            <h4 class="form-heading">Quotation Details</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "error-summary" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.QuotationID, htmlAttributes: new { @class = "control-label" })
+                <div class="input-box">
+                    @Html.EditorFor(model => model.QuotationID, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.QuotationID, "", new { @class = "error-message" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RequestQuotationID, htmlAttributes: new { @class = "control-label" })
+                <div class="input-box">
+                    @Html.EditorFor(model => model.RequestQuotationID, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.RequestQuotationID, "", new { @class = "error-message" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProductID, htmlAttributes: new { @class = "control-label" })
+                <div class="input-box">
+                    @Html.EditorFor(model => model.ProductID, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.ProductID, "", new { @class = "error-message" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Rate, htmlAttributes: new { @class = "control-label" })
+                <div class="input-box">
+                    @Html.EditorFor(model => model.Rate, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.Rate, "", new { @class = "error-message" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TotalAmount, htmlAttributes: new { @class = "control-label" })
+                <div class="input-box">
+                    @Html.EditorFor(model => model.TotalAmount, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.TotalAmount, "", new { @class = "error-message" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.QuotationDate, htmlAttributes: new { @class = "control-label" })
+                <div class="input-box">
+                    @Html.EditorFor(model => model.QuotationDate, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.QuotationDate, "", new { @class = "error-message" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SupplierID, htmlAttributes: new { @class = "control-label" })
+                <div class="input-box">
+                    @Html.EditorFor(model => model.SupplierID, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.SupplierID, "", new { @class = "error-message" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="btn-container">
+                    <input type="submit" value="Save" class="btn-submit" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<style>
+    /* General Styling */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        padding: 20px;
+    }
+
+    .title {
+        text-align: center;
+        color: #4CAF50;
+        font-size: 30px;
+        margin-bottom: 20px;
+        font-weight:bold;
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .form-box {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .form-heading {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #555;
+    }
+
+    hr {
+        border: 1px solid #eee;
+    }
+
+    /* Form Group Styling */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .control-label {
+        display: inline-block;
+        width: 150px;
+        font-weight: bold;
+        color: #555;
+    }
+
+    .input-box {
+        display: inline-block;
+        width: calc(100% - 160px);
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+    /* Button Styling */
+    .btn-container {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .btn-submit {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-back {
+        display: inline-block;
+        background-color: #6c757d;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+        .btn-back:hover {
+            background-color: #5a6268;
+        }
+
+    /* Validation Error Styling */
+    .error-summary {
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .error-message {
+        color: red;
+        font-size: 14px;
+    }
+</style>
